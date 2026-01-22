@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap');
+
+body {
+  font-family: 'Sora', sans-serif;
+}
+
+@theme {
+  /* Define the Sora font for the default sans-serif stack */
+  --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Define your brand blue color */
+  --color-brand-blue: #2563eb;
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* .animate-float {
+  animation: float 3s ease-in-out infinite;
+} */
+ .overflow-visible {
+  overflow: visible !important;
+}
