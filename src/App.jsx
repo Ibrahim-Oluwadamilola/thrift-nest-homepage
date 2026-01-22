@@ -29,6 +29,10 @@ import reviewFive from './assets/review5.webp';
 import reviewSix from './assets/review6.webp';
 import reviewSeven from './assets/review7.png';
 import reviewEight from './assets/review8.webp';
+import business from './assets/business-img.webp';
+import news from './assets/news.webp';
+import productTips from './assets/product-tips.webp';
+
 
 
 
@@ -515,6 +519,101 @@ function App() {
     <img src={reviewSix} className="absolute top-[40%] right-[3%] w-18 h-18 rounded-full object-cover border-4 border-white shadow-lg z-10" alt="User 6" />
     <img src={reviewSeven} className="absolute bottom-[25%] right-[12%] w-20 h-20 rounded-full object-cover border-4 border-white shadow-xl z-10" alt="User 7" />
     <img src={reviewEight} className="absolute bottom-[8%] right-[22%] w-16 h-16 rounded-full object-cover border-4 border-white shadow-md z-10" alt="User 8" />
+
+  </div>
+</section>
+
+
+<section className="max-w-7xl mx-auto px-6 py-24 bg-white">
+  
+  {/* Blog Header with "See More" Button */}
+  <div className="flex justify-between items-end mb-12">
+    <div>
+      <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">Blogs</h2>
+      <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">
+        Discover How You Can Build Wealth, Stay Consistent, and Thrive Financially Through Stories That Speak Your Language.
+      </p>
+    </div>
+    {/* See More Button */}
+    <button className="hidden md:flex items-center gap-2 px-6 py-3 border border-slate-300 rounded-full text-slate-700 font-semibold hover:bg-slate-50 transition-colors">
+      See More <span className="text-xl">→</span>
+    </button>
+  </div>
+
+  {/* Blog Grid */}
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    
+    {/* Blog Card 1 */}
+    <article className="flex flex-col">
+      <div className="overflow-hidden rounded-[2rem] mb-6 h-64">
+        <img 
+          src={business} 
+          alt="Business Blog" 
+          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+        />
+      </div>
+      <div className="flex justify-between items-center mb-4">
+        <span className="px-4 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-bold">Business</span>
+        <time className="text-gray-400 text-sm">10 Aug, 2025</time>
+      </div>
+      <h3 className="text-2xl font-bold text-slate-900 mb-3 leading-snug">
+        Why Financial Goals Fail, And How to Make Yours Stick
+      </h3>
+      <p className="text-gray-500 mb-6 line-clamp-2">
+        Setting financial goals feels empowering, like declaring to the universe: I’m ready to level up.
+      </p>
+      <button className="flex items-center gap-2 text-slate-900 font-bold hover:gap-3 transition-all">
+        Read more <span className="text-lg">→</span>
+      </button>
+    </article>
+
+    {/* Blog Card 2 */}
+    <article className="flex flex-col">
+      <div className="overflow-hidden rounded-[2rem] mb-6 h-64">
+        <img 
+          src={news} 
+          alt="News Blog" 
+          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+        />
+      </div>
+      <div className="flex justify-between items-center mb-4">
+        <span className="px-4 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-bold">News</span>
+        <time className="text-gray-400 text-sm">10 Aug, 2025</time>
+      </div>
+      <h3 className="text-2xl font-bold text-slate-900 mb-3 leading-snug">
+        Why Financial Goals Fail, And How to Make Yours Stick
+      </h3>
+      <p className="text-gray-500 mb-6 line-clamp-2">
+        Setting financial goals feels empowering, like declaring to the universe: I’m ready to level up.
+      </p>
+      <button className="flex items-center gap-2 text-slate-900 font-bold">
+        Read more <span>→</span>
+      </button>
+    </article>
+
+    {/* Blog Card 3 */}
+    <article className="flex flex-col">
+      <div className="overflow-hidden rounded-[2rem] mb-6 h-64">
+        <img 
+          src={productTips} 
+          alt="Product Tips" 
+          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+        />
+      </div>
+      <div className="flex justify-between items-center mb-4">
+        <span className="px-4 py-1 bg-blue-50 text-blue-600 rounded-full text-sm font-bold">Product tips</span>
+        <time className="text-gray-400 text-sm">10 Aug, 2025</time>
+      </div>
+      <h3 className="text-2xl font-bold text-slate-900 mb-3 leading-snug">
+        Why Financial Goals Fail, And How to Make Yours Stick
+      </h3>
+      <p className="text-gray-500 mb-6 line-clamp-2">
+        Setting financial goals feels empowering, like declaring to the universe: I’m ready to level up.
+      </p>
+      <button className="flex items-center gap-2 text-slate-900 font-bold">
+        Read more <span>→</span>
+      </button>
+    </article>
 
   </div>
 </section>
