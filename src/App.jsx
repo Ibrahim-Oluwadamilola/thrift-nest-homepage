@@ -1,5 +1,18 @@
 import React, { useState } from 'react';
-import { Download, Shield, Zap, Users, ArrowRight, MessageCircle, CheckCircle } from 'lucide-react';
+import { 
+  Download, 
+  Shield, 
+  Zap, 
+  Users, 
+  ArrowRight, 
+  MessageCircle, 
+  CheckCircle, 
+  Twitter,
+  Facebook,
+  Instagram,
+  Youtube,
+  Linkedin 
+} from 'lucide-react';
 import { motion } from "framer-motion";
 
 // Assets
@@ -35,11 +48,14 @@ import reviewEight from './assets/review8.webp';
 import business from './assets/business-img.webp';
 import news from './assets/news.webp';
 import productTips from './assets/product-tips.webp';
-import safeHaven from './assets/partner1.webp'
+import safeHaven from './assets/partner1.webp';
 import sudo from './assets/partner2.webp';
 import dojah from './assets/partner3.webp';
+import appStore from './assets/App-Store.webp';
+import googlePlay from './assets/Google-Play.webp';
+import iphoneMockup from './assets/phone-hold1.webp';
 
-// --- SUB-COMPONENTS (Defined outside App to prevent errors) ---
+// --- SUB-COMPONENTS ---
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -47,11 +63,11 @@ const FAQSection = () => {
   const faqs = [
     {
       question: "How does a Thrift Plan Work?",
-      answer: "A thrift plan operates by pooling the contributions of members towards common financial goals. Each month, members contribute a fixed amount, and one member receives the total contributions as a payout. This rotation continues until members have received payouts, promoting consistent savings and financial growth."
+      answer: "A thrift plan operates by pooling the contributions of members towards common financial goals. Each month, members contribute a fixed amount, and one member receives the total contributions as a payout."
     },
     {
       question: "Is my money safe in a Thrift Plan?",
-      answer: "Absolutely! At ThriftPay, we prioritize the security of your savings. All thrift are meticulously managed and monitored. Additionally, our platform employs top-notch encryption and security measures to safeguard your funds, ensuring a worry-free savings experience."
+      answer: "Absolutely! At ThriftPay, we prioritize the security of your savings. All thrift are meticulously managed and monitored."
     }
   ];
 
@@ -61,7 +77,6 @@ const FAQSection = () => {
         <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">Frequently asked questions</h2>
         <p className="text-gray-500 text-lg">Your Questions Answered!</p>
       </div>
-
       <div className="divide-y divide-gray-100 border-t border-gray-100">
         {faqs.map((faq, index) => (
           <div key={index} className="py-2">
@@ -88,7 +103,7 @@ const FAQSection = () => {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
+    <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-blue-100">
       
       {/* 1. NAVBAR */}
       <div className="fixed top-4 left-0 w-full z-[100] px-4 md:px-10">
@@ -114,17 +129,27 @@ export default function App() {
 
       {/* 2. HERO SECTION */}
       <main className="max-w-7xl mx-auto px-6 pt-20 pb-24 grid md:grid-cols-2 gap-12 items-center">
-        <div className="text-left">
-          <h1 className="text-6xl md:text-8xl font-black text-slate-900 leading-[1.1] mb-8">
-            Save Smarter, <br /> <span className="text-blue-600">Together</span>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-left"
+        >
+          <h1 className="text-6xl md:text-8xl font-semibold  text-slate-900 leading-[1.1] mb-8">
+            Save Smarter, <br /> Together
           </h1>
-          <p className="text-gray-500 text-xl md:text-2xl mb-12 max-w-lg leading-relaxed">
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-gray-500 text-xl md:text-2xl mb-12 max-w-lg leading-relaxed"
+          >
             Join thousands of savers achieving their financial goals with ThriftPay.
-          </p>
+          </motion.p>
           <button className="bg-blue-600 text-white px-12 py-5 rounded-2xl font-black text-xl shadow-2xl shadow-blue-200 hover:scale-105 transition-transform flex items-center gap-3">
             Get The App <Download size={24} />
           </button>
-        </div>
+        </motion.div>
 
         <div className="relative w-80 h-80 md:w-[500px] md:h-[500px] flex items-end justify-center">
           <img src={heroBoy} alt="Hero Boy" className="absolute bottom-0 left-[-10%] w-[70%] z-10 object-contain max-h-[110%]" />
@@ -183,7 +208,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* JOIN & TRACK PROGRESS COMPACT BOX */}
+      {/* JOIN & TRACK PROGRESS */}
       <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="bg-[#F9FAFB] rounded-[3rem] border border-gray-100 p-10 shadow-sm">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 relative">
@@ -206,7 +231,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* BRING YOUR GROUP REWARDED */}
+      {/* REWARD SECTION */}
       <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="px-3 md:px-14">
@@ -228,122 +253,149 @@ export default function App() {
         </div>
       </section>
 
-      {/* CUSTOMER REVIEWS */}
-      
-<section className="relative max-w-7xl mx-auto px-6 py-24 bg-white overflow-hidden font-sans">
-  
-  {/* Header with Doodle Underline */}
-  <div className="text-center mb-16 relative z-30">
-    <h2 className="text-3xl md:text-5xl font-semibold text-slate-900 mb-2 relative inline-block">
-      What our customers say
-      {/* Hand-drawn style blue underline */}
-      <svg className="absolute -bottom-2 left-0 w-full" height="10" viewBox="0 0 100 10" preserveAspectRatio="none">
-        <path d="M0 5 Q 25 0, 50 5 T 100 5" stroke="#2563eb" strokeWidth="4" fill="transparent" strokeLinecap="round" opacity="0.3" />
-      </svg>
-    </h2>
-    <p className="text-gray-500 text-lg mt-4">Hear from our savers.</p>
-  </div>
+      {/* REVIEWS */}
+      <section className="relative max-w-7xl mx-auto px-6 py-24 overflow-hidden">
+        <div className="text-center mb-16 relative z-30">
+          <h2 className="text-3xl md:text-5xl font-semibold text-slate-900 mb-2 relative inline-block">
+            What our customers say
+            <svg className="absolute -bottom-2 left-0 w-full" height="10" viewBox="0 0 100 10" preserveAspectRatio="none">
+              <path d="M0 5 Q 25 0, 50 5 T 100 5" stroke="#2563eb" strokeWidth="4" fill="transparent" strokeLinecap="round" opacity="0.3" />
+            </svg>
+          </h2>
+          <p className="text-gray-500 text-lg mt-4">Hear from our savers.</p>
+        </div>
+        <div className="relative min-h-[600px] flex items-center justify-center">
+          <img src={reviewOne} className="absolute top-[5%] left-[10%] w-20 h-20 rounded-full object-cover border-4 border-white shadow-xl" alt="1" />
+          <img src={reviewTwo} className="absolute top-[35%] left-[5%] w-16 h-16 rounded-full object-cover border-4 border-white shadow-lg z-10" alt="User 2" />
+          <img src={reviewThree} className="absolute bottom-[20%] left-[5%] w-24 h-24 rounded-full object-cover border-4 border-white shadow-2xl" alt="3" />
+          <img src={reviewFour} className="absolute bottom-[5%] left-[20%] w-14 h-14 rounded-full object-cover border-4 border-white shadow-md z-10" alt="User 4" />
+          <div className="bg-[#F9FAFB] rounded-[3rem] p-10 md:p-16 max-w-2xl w-full text-center border border-gray-100">
+            <div className="flex justify-center gap-1 mb-6 text-yellow-400">★★★★★</div>
+            <blockquote className="text-xl md:text-2xl font-semibold mb-8">"I love the transparency on ThriftPay. I always know where my money is going."</blockquote>
+            <cite className="not-italic font-bold text-lg block">Jenny Wilson</cite>
+            <span className="text-gray-400 text-sm">Accountant at Nestle Nigeria</span>
+          </div>
+          <img src={reviewFive} className="absolute top-[10%] right-[10%] w-24 h-24 rounded-full object-cover border-4 border-white shadow-xl" alt="5" />
+          <img src={reviewSix} className="absolute top-[40%] right-[3%] w-18 h-18 rounded-full object-cover border-4 border-white shadow-lg z-10" alt="User 6" />
+          <img src={reviewSeven} className="absolute bottom-[20%] right-[5%] w-20 h-20 rounded-full object-cover border-4 border-white shadow-xl" alt="7" />
+        <img src={reviewEight} className="absolute bottom-[8%] right-[22%] w-16 h-16 rounded-full object-cover border-4 border-white shadow-md z-10" alt="User 8" />
 
-  <div className="relative min-h-[700px] flex items-center justify-center">
-    
-    {/* --- LEFT SIDE USERS --- */}
-    <img src={reviewOne} className="absolute top-[5%] left-[15%] w-20 h-20 rounded-full object-cover border-4 border-white shadow-xl z-10" alt="User 1" />
-    <img src={reviewTwo} className="absolute top-[35%] left-[5%] w-16 h-16 rounded-full object-cover border-4 border-white shadow-lg z-10" alt="User 2" />
-    <img src={reviewThree} className="absolute bottom-[30%] left-[12%] w-24 h-24 rounded-full object-cover border-4 border-white shadow-2xl z-10" alt="User 3" />
-    <img src={reviewFour} className="absolute bottom-[5%] left-[20%] w-14 h-14 rounded-full object-cover border-4 border-white shadow-md z-10" alt="User 4" />
-
-    {/* --- CENTRAL CARD --- */}
-    <div className="bg-[#F9FAFB] rounded-[3rem] p-10 md:p-16 max-w-2xl w-full text-center border border-gray-100 shadow-sm relative z-20">
-      <div className="flex justify-center gap-1 mb-6 text-yellow-400 text-xl">
-        {[...Array(5)].map((_, i) => <span key={i}>★</span>)}
-      </div>
-
-      <blockquote className="text-xl md:text-2xl font-semibold text-slate-900 leading-snug mb-8 px-4">
-        "I love the transparency on ThriftPay. I always know where my money is going."
-      </blockquote>
-
-      <div className="space-y-1">
-        <cite className="not-italic font-bold text-slate-900 text-lg block">Jenny Wilson</cite>
-        <span className="text-gray-400 text-sm">Accountant at Nestle Nigeria</span>
-      </div>
-    </div>
-
-    {/* --- RIGHT SIDE USERS --- */}
-    <img src={reviewFive} className="absolute top-[8%] right-[10%] w-24 h-24 rounded-full object-cover border-4 border-white shadow-xl z-10" alt="User 5" />
-    <img src={reviewSix} className="absolute top-[40%] right-[3%] w-18 h-18 rounded-full object-cover border-4 border-white shadow-lg z-10" alt="User 6" />
-    <img src={reviewSeven} className="absolute bottom-[25%] right-[12%] w-20 h-20 rounded-full object-cover border-4 border-white shadow-xl z-10" alt="User 7" />
-    <img src={reviewEight} className="absolute bottom-[8%] right-[22%] w-16 h-16 rounded-full object-cover border-4 border-white shadow-md z-10" alt="User 8" />
-
-  </div>
-</section>
-
-
+        </div>
+      </section>
 
       {/* BLOGS */}
       <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="flex justify-between items-end mb-16">
-          <h2 className="text-4xl font-black">Blogs</h2>
-          <button className="px-8 py-3 border rounded-full font-bold">See More →</button>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {[ {img: business, cat: "Business"}, {img: news, cat: "News"}, {img: productTips, cat: "Product Tips"} ].map((post, i) => (
-            <article key={i} className="group cursor-pointer transition-all hover:-translate-y-3">
-              <div className="overflow-hidden rounded-[2.5rem] mb-8 aspect-[4/3]"><img src={post.img} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" /></div>
-              <span className="px-4 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-bold uppercase">{post.cat}</span>
-              <h3 className="text-2xl font-bold mt-4 mb-4">Why Financial Goals Fail...</h3>
-              <p className="text-gray-500 mb-8 line-clamp-3">Setting financial goals feels empowering...</p>
-              <button className="px-6 py-2 border rounded-full font-bold group-hover:bg-slate-900 group-hover:text-white transition-all">Read more →</button>
-            </article>
-          ))}
-        </div>
-      </section>
+  <div className="flex justify-between items-end mb-16">
+    <h2 className="text-4xl font-black">Blogs</h2>
+    <button className="px-8 py-3 border rounded-full font-bold">See More →</button>
+  </div>
 
-      {/* FAQ SECTION */}
+  {/* Removed hover classes from this grid div */}
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+    {[
+      { img: business, cat: "Business" },
+      { img: news, cat: "News" },
+      { img: productTips, cat: "Product Tips" }
+    ].map((post, i) => (
+      /* Applied hover classes to the individual article div */
+      <article 
+        key={i} 
+        className="group cursor-pointer bg-white p-6 rounded-3xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+      >
+        <div className="overflow-hidden rounded-[2.5rem] mb-8 aspect-[4/3]">
+          <img 
+            src={post.img} 
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+            alt={post.cat}
+          />
+        </div>
+        
+        <span className="px-4 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-bold uppercase">
+          {post.cat}
+        </span>
+        
+        <h3 className="text-2xl font-bold mt-4 mb-4">Why Financial Goals Fail...</h3>
+        <p className="text-gray-500 mb-8 line-clamp-2">
+          Setting financial goals feels empowering...
+        </p>
+        
+        <button className="px-6 py-2 border rounded-full font-bold group-hover:bg-slate-900 group-hover:text-white transition-all">
+          Read more →
+        </button>
+      </article>
+    ))}
+  </div>
+</section>
+
       <FAQSection />
 
-      {/* 2. PARTNERS SECTION (New) */}
+      {/* PARTNERS */}
       <section className="bg-[#F9FAFB] py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-center text-3xl font-semibold text-gray-600 mb-16">Our Partners</h2>
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-80">
-            {/* Replace these src with your actual imported partner logos */}
-            <img src={safeHaven} alt="Safe Haven MFB" className="h-12 md:h-16 object-contain" />
-            <img src={sudo} alt="Sudo" className="h-10 md:h-12 object-contain" />
-            <img src={dojah} alt="Dojah" className="h-10 md:h-12 object-contain" />
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl font-semibold text-gray-600 mb-16">Our Partners</h2>
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60">
+            <img src={safeHaven} alt="Partner" className="h-12 object-contain" />
+            <img src={sudo} alt="Partner" className="h-10 object-contain" />
+            <img src={dojah} alt="Partner" className="h-10 object-contain" />
           </div>
         </div>
       </section>
 
-      {/* FINAL BLUE BANNER */}
-      <section className="py-24 px-6 max-w-7xl mx-auto bg-blue-600 rounded-[3rem] my-10 text-white relative">
-        <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-black mb-6">Bring Your Thrift Group & Get Rewarded!</h2>
-            <div className="space-y-4">
-              <div className="flex items-center gap-3"><CheckCircle size={20}/> Effortless group management</div>
-              <div className="flex items-center gap-3"><CheckCircle size={20}/> Transparent & Secure Tracking</div>
-            </div>
-          </div>
-          <div className="bg-white/10 p-8 rounded-3xl backdrop-blur-md border border-white/20 text-center">
-            <p className="text-4xl font-black mb-2">₦500</p>
-            <p className="text-blue-200 uppercase tracking-widest text-xs font-bold">Per Active Member</p>
+      {/* TRANSFORM CTA */}
+      <section className="max-w-7xl mx-auto px-4 py-16">
+        <div className="bg-blue-600 rounded-[3rem] overflow-hidden min-h-[500px] flex items-center px-8 md:px-20 py-16 md:py-0">
+          <div className="grid md:grid-cols-2 items-center gap-12">
+            <motion.div initial={{opacity:0, x:-50}} whileInView={{opacity:1, x:0}} viewport={{once:true}} className="text-white">
+              <h2 className="text-4xl md:text-6xl font-black mb-6">Transform Your Savings Experience with ThriftNest!</h2>
+              <p className="text-blue-100 text-xl mb-10">Download now and start thriving!</p>
+              <div className="flex gap-4">
+                <img src={appStore} className="h-12 cursor-pointer" alt="App Store" />
+                <img src={googlePlay} className="h-12 cursor-pointer" alt="Google Play" />
+              </div>
+            </motion.div>
+            <motion.img initial={{opacity:0, y:100}} whileInView={{opacity:1, y:0}} viewport={{once:true}} src={iphoneMockup} className="w-full max-w-[400px] mx-auto drop-shadow-2xl" />
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-white pt-24 pb-12 px-6 border-t border-gray-100">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 mb-16">
-          <div>
-            <div className="flex items-center gap-2 mb-6">
-              <img src={thriftnestLogo} alt='logo' className="w-8 h-8" />
-              <span className="text-xl font-bold text-blue-900">ThriftNest</span>
-            </div>
-            <p className="text-gray-500 text-sm">Ogun Housing Estate, Ogun State, Nigeria</p>
-          </div>
+      <footer className="bg-white pt-24 pb-12 px-6">
+  <div className="max-w-7xl mx-auto">
+    <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+      {/* Left side: Brand & Address (Kept exactly the same) */}
+      <div className="md:col-span-6">
+        <div className="flex items-center gap-2 mb-6">
+          <img src={thriftnestLogo} alt='logo' className="w-8 h-8" />
+          <span className="text-xl font-bold text-blue-900">ThriftNest</span>
         </div>
-      </footer>
-      
+        <p className="text-gray-500 max-w-sm mb-4">Ogun Housing Estate, Ogun State, Nigeria.</p>
+        <p className="text-gray-500 mb-2">+234 810 753 6436</p>
+        <p className="text-gray-400 text-sm">RC- 7827136</p>
+      </div>
+
+      {/* Right side: All navigation links on one horizontal line */}
+      <div className="md:col-span-6 flex flex-row flex-wrap items-start md:justify-end gap-x-8 gap-y-4 text-gray-600 font-medium">
+        <a href="#" className="hover:text-blue-600 whitespace-nowrap">About Us</a>
+        <a href="#" className="hover:text-blue-600 whitespace-nowrap">FAQ's</a>
+        <a href="#" className="hover:text-blue-600 whitespace-nowrap">Contact Us</a>
+        <a href="#" className="hover:text-blue-600 whitespace-nowrap">Terms of Use</a>
+        <a href="#" className="hover:text-blue-600 whitespace-nowrap">Privacy Policy</a>
+      </div>
+    </div>
+
+    {/* Bottom Bar (Kept exactly the same) */}
+    <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      <p className="text-gray-400 text-sm">Copyright © ThriftNest 2025 | ThriftNest by Jemivy Global Technology LTD.</p>
+      <div className="flex gap-5 text-blue-900">
+        <Linkedin size={20} className="cursor-pointer hover:text-blue-600" />
+        <Twitter size={20} className="cursor-pointer hover:text-blue-600" />
+        <Facebook size={20} className="cursor-pointer hover:text-blue-600" />
+        <Instagram size={20} className="cursor-pointer hover:text-blue-600" />
+        <Youtube size={20} className="cursor-pointer hover:text-blue-600" />
+      </div>
+    </div>
+  </div>
+</footer>
     </div>
   );
 }
