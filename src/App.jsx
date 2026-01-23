@@ -33,7 +33,7 @@ import planDetails from './assets/Plan-Details.webp';
 import members from './assets/members.webp';
 import membersReceiving from './assets/Member-Receiving.webp';
 import cycle from './assets/active-cycle.webp';
-import iconOne from './assets/icons-1.webp';
+import iconOne from './assets/Icons-1.webp';
 import iconTwo from './assets/icon-2.webp';
 import iconThree from './assets/icon-3.webp';
 import iconFour from './assets/icon-4.webp';
@@ -362,7 +362,7 @@ export default function App() {
       <footer className="bg-white pt-24 pb-12 px-6">
   <div className="max-w-7xl mx-auto">
     <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
-      {/* Left side: Brand & Address (Kept exactly the same) */}
+      {/* Left side: Brand & Address */}
       <div className="md:col-span-6">
         <div className="flex items-center gap-2 mb-6">
           <img src={thriftnestLogo} alt='logo' className="w-8 h-8" />
@@ -383,7 +383,7 @@ export default function App() {
       </div>
     </div>
 
-    {/* Bottom Bar (Kept exactly the same) */}
+    {/* Bottom Bar */}
     <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
       <p className="text-gray-400 text-sm">Copyright © ThriftNest 2025 | ThriftNest by Jemivy Global Technology LTD.</p>
       <div className="flex gap-5 text-blue-900">
